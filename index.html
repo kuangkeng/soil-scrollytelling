@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
+  </head>
+
+<style>
+body {
+  font-family: "Roboto", georgia, garamond, "Times New Roman", serif !important;
+  font-weight: 400;
+  line-height: 1.8;
+  font-size: 18px;
+  text-align: left;
+  background-color: rgba(0,0,0,0.9);
+  box-sizing: border-box;
+  margin: 0;
+} 
+
+#wrapper {
+  width: 100%;
+  /* max-width: 800px; */
+  position: relative;
+  margin: 0 auto;
+  height: 600px;
+}
+.scroll-logo {
+  position:fixed;
+  top:200px;
+  left:50%;
+  width:80px;
+  height:80px;
+  margin-left: -40px;
+  z-index: 9999;
+  padding:5px;
+}
+.scroll-path{
+  stroke-width: 10;
+  stroke: #000000;
+}
+@keyframes blink2 {
+  100%,
+  0% {opacity:0.2;}
+  60% {opacity:1;}
+}
+.flash2 {
+  animation: blink2 1.2s infinite;
+}
+
+.imagebox { 
+  background-image: url("./img/t1.jpg");
+  height: 750px; 
+  width: 100%;
+  /* max-width: 800px; */
+  margin: 0 auto;
+  position: fixed;
+  top:0px;
+  margin: auto 0px;
+  z-index: 100 !important;
+  background-color: rgba(0,0,0,0.9);
+  background-size: cover;
+  /* background-size: 100% 100%; */
+  background-position: center center;
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+}
+
+.container {
+  background-color: rgba(0,0,0,0);
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#map-texts {
+  position: relative;
+  z-index: 999;
+}
+.scroll-text{
+  font-size: 24px;
+  color: #fff;
+  margin-top: 0px;
+  border: 0px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  max-width: 800px;
+  margin:0 auto;
+  background: rgba(0,0,0,.6);
+  margin-bottom: 600px !important;
+  
+}
+
+.title {
+  color:#c4c4c4;
+  font-family: "Kelly Slab", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 0px;
+}
+#byline{
+  margin: 2em 0;
+}
+
+.credit {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 14px;
+  color:rgba(255,255,255,0.6);
+  position:absolute;
+  bottom:10%;
+  right:5%;
+  text-align: left;
+  z-index: 300 !important;
+  display: none;
+}
+
+#t5{
+  margin-bottom: 5% !important;
+  margin-left: 0px;
+  /* width:45%; */
+  background: rgba(255,255,255,0);
+}
+
+/* #t6{
+  margin-left: 10px;
+  width: 45%;
+  background: rgba(255,255,255,0);
+} */
+
+h1 {
+  margin-top: 0px;
+  font-size: 3em;
+}
+
+#tfirst, #tlast {
+  border: 0px;
+  background: rgba(255,255,255,0);
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.inline-img {
+  height: 1em; /* Match the text height */
+  vertical-align: middle; /* Aligns the image with the text */
+}
+
+@media (max-width: 500px){
+  .scroll-text {
+    padding: 1px 10px;
+  }
+  .scroll-text p {
+    font-size: 20px;
+    line-height: 150%;
+  }
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #t5{
+    margin: 0 auto;
+    width:auto;
+    background: rgba(0,0,0,.6);
+    margin-bottom: 55% !important;
+  }
+
+  /* #t6{
+    margin: 0 auto;
+    width:auto;
+    background: rgba(0,0,0,.6);
+  } */
+
+  .title{
+    font-size: 2em;
+    line-height: 1.2;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper"> 
+    <div class="scroll-logo flash2">
+      <svg version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g>
+         <path class="scroll-path" d="m459.38 227.5c-8.3125 0.11719-16.215 3.625-21.875 9.7109-0.80078-7.7891-4.582-14.969-10.551-20.035-5.9727-5.0703-13.668-7.6328-21.484-7.1602s-15.148 3.9453-20.465 9.6953c-0.82422-7.5234-4.4141-14.473-10.07-19.504-5.6602-5.0273-12.984-7.7734-20.555-7.707-8.5039 0.019531-16.543 3.8789-21.875 10.5v-98c0-10.941-5.8359-21.051-15.312-26.523-9.4766-5.4688-21.148-5.4688-30.625 0-9.4766 5.4727-15.312 15.582-15.312 26.523v271.25c0 39.074 20.848 75.184 54.688 94.723 33.84 19.535 75.535 19.535 109.38 0 33.84-19.539 54.688-55.648 54.688-94.723v-118.12c0-8.1211-3.2266-15.91-8.9688-21.656-5.7461-5.7422-13.535-8.9688-21.656-8.9688zm21.875 148.75c0 35.949-19.18 69.168-50.312 87.145-31.133 17.973-69.492 17.973-100.62 0-31.133-17.977-50.312-51.195-50.312-87.145v-271.25c0-7.8164 4.168-15.035 10.938-18.945 6.7695-3.9062 15.105-3.9062 21.875 0 6.7695 3.9102 10.938 11.129 10.938 18.945v179.38c0 2.418 1.957 4.375 4.375 4.375s4.375-1.957 4.375-4.375v-52.5c0-18.898 8.75-30.625 21.875-30.625 5.8008 0 11.367 2.3047 15.469 6.4062s6.4062 9.668 6.4062 15.469v70c0 2.418 1.957 4.375 4.375 4.375s4.375-1.957 4.375-4.375v-52.5c0-7.8164 4.168-15.035 10.938-18.945 6.7695-3.9062 15.105-3.9062 21.875 0 6.7695 3.9102 10.938 11.129 10.938 18.945v61.25c0 2.418 1.957 4.375 4.375 4.375s4.375-1.957 4.375-4.375v-43.75c0-7.8164 4.168-15.035 10.938-18.945 6.7695-3.9062 15.105-3.9062 21.875 0 6.7695 3.9102 10.938 11.129 10.938 18.945z"/>
+         <path class="scroll-path" d="m249.38 109.64c0.80078 0.83203 1.9062 1.3047 3.0625 1.3125 1.1836-0.003907 2.3164-0.47266 3.1484-1.3125 1.6797-1.7305 1.6797-4.4805 0-6.2109l-22.137-22.137-22.137 22.137c-0.82812 0.82031-1.293 1.9375-1.293 3.1055s0.46484 2.2852 1.293 3.1055c0.79297 0.84766 1.9023 1.3281 3.0625 1.3281s2.2695-0.48047 3.0625-1.3281l11.637-11.551v70.961l-11.637-11.547c-0.79297-0.84766-1.9023-1.3242-3.0625-1.3242s-2.2695 0.47656-3.0625 1.3242c-0.82812 0.82031-1.293 1.9414-1.293 3.1055 0 1.168 0.46484 2.2852 1.293 3.1055l22.137 22.137 3.0625-3.1484 19.074-18.988c1.6797-1.7305 1.6797-4.4805 0-6.2109-0.82031-0.82812-1.9375-1.293-3.1055-1.293-1.1641 0-2.2852 0.46484-3.1055 1.293l-11.551 11.551v-70.965z"/>
+        </g>
+       </svg>       
+    </div>
+    <div class="imagebox">
+      <div class="credit">Photo: <span id="credit_name">Jessica Buckingham</span></div>
+    </div>
+    <div id="map-texts">
+      <div class="container">
+        <ul>
+          <li id="tfirst" class="scroll-text">
+          </li>
+          <li id="t1" class="scroll-text">
+            <p>Forests in southern Laos have been cleared to make way for banana and durian plantations, driven by surging demand from China.</p>
+          </li>
+          <li id="t2" class="scroll-text">
+            <p>Most of these plantations are owned by Chinese and Vietnamese companies, with support from the Lao government.</p> 
+          </li>
+          <li id="t3" class="scroll-text">
+            <p>Investors from across the border continue to flock to landlocked Laos in search of land for banana and durian cultivation, touting jobs, infrastructure development, and 'green agriculture' as the government seeks to lift the country out of its status as one of Southeast Asia's poorest and least-developed nations.</p>
+          </li>
+          <li id="t4" class="scroll-text">
+            <p>Meanwhile, in the north of the country, while once a source of economic growth, banana plantations have left behind a legacy of soil degradation and uncertain livelihoods for many local farmers.</p> 
+          </li>
+          <li id="t5" class="scroll-text">
+            <p><h1 class="title">Title line 1<br>Title line 2<br>Title line 3</h1></p>
+            <p id="byline"><i>by Vo Kieu Bao Uyen</i></p>
+            <p>This series was produced in partnership with the <img src="./img/pulitzer-logo.png" alt="Icon" class="inline-img" alt='pulitzer center logo'></p>
+          </li>
+          <li id="tlast" class="scroll-text"></li>
+        </ul> 
+      </div> 
+    </div> 
+</div>  
+
+<script type="text/javascript">
+
+if(window.innerWidth>500){
+  img_t6="url('./img/t6d.jpg')";
+  img_t8="url('./img/t8d.jpg')";
+} else if(window.innerWidth<500){
+  img_t6="url('./img/t6m.jpg')";
+  img_t8="url('./img/t8m.jpg')";
+}
+
+const credit_names = [
+"Jessica Buckingham",
+"Jessica Buckingham",
+"Holly S. Anderson",
+"Brendan Bullock",
+"Marina Schauffler",
+];
+
+//waypoint transition
+const offsetVal = '80%';
+
+new Waypoint({
+  element: document.getElementById('t1'),
+  handler: direction => {
+    if (direction === 'down') {
+      $('.scroll-logo').fadeOut(1000);
+      $('.credit').fadeIn(1000);
+    } else {}
+  },
+  offset: '60%',
+});
+
+new Waypoint({
+  element: document.getElementById('t2'),
+  handler: direction => {
+    if (direction === 'down') {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t2.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[1]);
+    } else {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t1.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[0]);
+    }
+  },
+  offset: offsetVal,
+});
+
+new Waypoint({
+  element: document.getElementById('t3'),
+  handler: direction => {
+    if (direction === 'down') {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t3.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[2]);
+    } else {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t2.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[1]);
+    }
+  },
+  offset: offsetVal,
+});
+
+new Waypoint({
+  element: document.getElementById('t4'),
+  handler: direction => {
+    if (direction === 'down') {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t4.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[3]);
+    } else {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t3.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[2]);
+    }
+  },
+  offset: offsetVal,
+});
+
+new Waypoint({
+  element: document.getElementById('t5'),
+  handler: direction => {
+    if (direction === 'down') {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t5.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[4]);
+    } else {
+      $('.imagebox').fadeTo(300, 0, function() {
+        $(this).css('background-image', 'url("./img/t4.jpg")').fadeTo(300, 1);
+      });
+      $('#credit_name').html(credit_names[3]);
+    }
+  },
+  offset: offsetVal,
+});
+
+</script>
+</body>
+</html>
